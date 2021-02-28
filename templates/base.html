@@ -20,10 +20,6 @@
 </head>
 <body class="base-temp">
     {% block content %}
-{#        <div id="site-border-left"></div>#}
-{#        <div id="site-border-right"></div>#}
-{#        <div id="site-border-top"></div>#}
-{#        <div id="site-border-bottom"></div>#}
         <header>
             <nav class="navbar  navbar-fixed-top navbar-default">
                 <div class="container">
@@ -40,6 +36,7 @@
                             <li><a href="./works.html" title="">02 : Works</a></li>
                             <li><a href="./about.html" title="">03 : About me</a></li>
                             <li><a href="./contact.html" title="">04 : Contact</a></li>
+                            <li><a href="{{ url_for("submit_form") }}">05: WTF Contact</a></li>
                         </ul>
 
 
@@ -56,18 +53,6 @@
         <script type="text/javascript" src="../static/main.70a66962.js"></script>
 
     {% endblock %}
-
-{#    {% block footer %}#}
-{#        <footer class="footer-container text-center" style="margin-top: 25%">#}
-{#            <div class="container">#}
-{#                <div class="row">#}
-{#                    <div class="col-xs-12">#}
-{#                        <p class="text-center">&copy; Copyright {{ year }} Tareq Judeh</p>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </footer>#}
-{#    {% endblock %}#}
 
 </body>
 </html>

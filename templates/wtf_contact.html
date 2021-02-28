@@ -1,17 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     {% extends "base.html" %}
     {% block head %}
         {{ super() }}
     {% endblock %}
 </head>
-
 <body>
-    {% block content %}
+{#    {% block content %}#}
+{#        {{ super() }}#}
+{#        <div class="container"  style="padding: 100px">#}
+{#         {% if name %}#}
+{##}
+{#             <p style="font-size: 15px">#}
+{#                 Thank you, {{ name | title }}! I will contact you shortly.#}
+{#             </p>#}
+{#             <a href="{{ url_for("submit_form") }}">Leave another message</a>#}
+{##}
+{#        {% else %}#}
+{#            <h2>WTF Form</h2>#}
+{#            <form method="POST">#}
+{#                {{ form.hidden_tag() }}#}
+{##}
+{#                {{ form.name.label(class="form-label") }}#}
+{#                {{ form.name(class="form-control") }}#}
+{##}
+{#                {{ form.email.label(class="form-label") }}#}
+{#                {{ form.email(class="form-control") }}#}
+{##}
+{#                {{ form.submit(class="btn btn-dark") }}#}
+{##}
+{##}
+{##}
+{#            </form>#}
+{#        </div>#}
+{##}
+{#        {% endif %}#}
+{##}
+{#        {% include "footer.html" %}#}
+{#    {% endblock %}#}
+
+ {% block content %}
        {{ super() }}
-        <div class="section-container">
+        <div class="section-container" style="padding: 200px 150px">
+        {% if name %}
+            <p style="font-size: 15px">
+                 Thank you, {{ name | title }} for your message. I will contact you shortly!
+             </p>
+        {% else %}
             <div class="container">
               <div class="row">
                 <div class="col-xs-12">
@@ -21,20 +57,22 @@
 
                   <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                       <form action="{{ url_for('submit_form') }}" method="post" class="reveal-content">
+                       <form method="post" class="reveal-content">
+                           {{ form.hidden_tag() }}
+
                           <div class="row">
                             <div class="col-md-7">
                               <div class="form-group">
-                                  <input type="text" name="username" class="form-control" id="name" placeholder="Name" style="color: black">
+                                    {{ form.name(class="form-control", placeholder="John Smith") }}
                               </div>
                                  <div class="form-group">
-                                  <input name="email" type="email" class="form-control" id="email" placeholder="Email" style="color: black">
+                                     {{ form.email(class="form-control", placeholder="example@email.com") }}
                               </div>
                               <div class="form-group">
-                                <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" style="color: black">
+                                    {{ form.subject(class="form-control", placeholder="Title") }}
                               </div>
                               <div class="form-group">
-                                <textarea name="message" class="form-control" rows="5" placeholder="Leave me a message here" style="color: black"></textarea>
+                                    {{ form.message(class="form-control", placeholder="Leave me a message here..", rows="7") }}
                               </div>
                               <button type="submit" value="submit" class="btn btn-default btn-lg">Send</button>
                             </div>
@@ -84,11 +122,9 @@
                </div>
               </div>
             </div>
+        {% endif %}
           </div>
         {% include "footer.html" %}
     {% endblock %}
-
-
 </body>
-
 </html>
