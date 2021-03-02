@@ -3,9 +3,9 @@ import os
 import smtplib
 from datetime import datetime
 
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField, validators
+from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email
 from wtforms.fields.html5 import EmailField
 
@@ -15,6 +15,7 @@ app = Flask(__name__)
 # Constants:
 year = datetime.now().year
 
+# Gmail credentials:
 my_user = os.environ.get("EMAIL_USER")
 my_password = os.environ.get("EMAIL_PASS")
 
@@ -94,7 +95,7 @@ def submit_form():
 
     else:
         return render_template(
-            "wtf_contact.html",
+            "contact_me.html",
             name=form_name,
             form=form,
             year=year

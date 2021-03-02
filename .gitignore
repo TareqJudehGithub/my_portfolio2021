@@ -1,5 +1,9 @@
-.gitignore
 venv/
 .idea/
+templates/old_contact_form.html
+templates/components.html
+templates/thankyou.html
+.gitignore
+
 
 
