@@ -102,11 +102,6 @@ def submit_form():
         )
 
 
-@app.route("/wtf_thankyou")
-def wtf_thank_you():
-    return render_template("wtf_thankyou.html")
-
-
 def write_to_csv(data):
     """Saving form data to a .csv file"""
     with open("database.csv", newline="\n", mode="a") as database:

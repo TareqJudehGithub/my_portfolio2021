@@ -3,6 +3,7 @@ venv/
 templates/old_contact_form.html
 templates/components.html
 templates/thankyou.html
+templates/name.html
 .gitignore
 
 
